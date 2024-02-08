@@ -1,34 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-    template: `<h1>Hello world 2</h1>
-    <hr>
-<p>
-el numero del contador es : {{counter}}
-</p>
-<button (click)="MasMenos2(+1)">+1</button>
-<button (click)="Reset2()">reset</button>
-<button (click)="MasMenos2(-1)">-1</button>
-<hr>
+  template: `
+    <h3>Counter: {{ counter }}</h3>
 
+    <button (click)="increaseBy(+1)">+1</button>
+    <button (click)="resetCounter()">Reset</button>
+    <button (click)="increaseBy(-1)">-1</button>
 
-    `
+  `
 })
+export class CounterComponent  {
+  public counter: number = 10;
 
-export class CounterComponent {
-    public title: string = 'Hello world';
-    public counter:number= 22;
-    increaseBy2():void{
-      this.counter += 1
-    }
-    decreaseBy2():void {
-      this.counter -= 1;
+  increaseBy( value: number ):void {
+    this.counter += value;
+  }
 
-    }
-    MasMenos2(masmenos:number):void{
-   this.counter += masmenos;
-    }
-    Reset2():void{this.counter = 22}
-
+  resetCounter() {
+    this.counter = 10;
+  }
 }
